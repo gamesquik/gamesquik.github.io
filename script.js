@@ -1,7 +1,7 @@
-const form = document.getElementsByClassName("row input-container")[0],
+const form = document.querySelector("form");
 statusTxt = form.querySelector(".button-area span");
 
-statusTxt.onclick = (e)=>{
+form.onsubmit = (e)=>{
     e.preventDefault(); //Preventing form from submitting
     statusTxt.style.display = "block";
 
@@ -10,8 +10,19 @@ statusTxt.onclick = (e)=>{
     xhr.onload = ()=>{ // once ajax loaded
         if(xhr.readyState == 4 && xhr.status == 200){ // if ajax response status is 200 & ready status is 4 means there is not any error
             let response = xhr.response; // storing ajax response in a response variable
-            console.log(response);
+            // if response is an error, we'll change status color to red, else reset the form
+            if(response.indexOf("Name and email field is required!") != -1 || response.indexOf("Enter a valid email address!" || response.indexOf("Sorry, failed to send your message!"))){
+                statusTxt.style.color = "red";
+            } else {
+                form.reset();
+                setTimeout(()=>{
+                    statusTxt.style.display = "none";
+                }, 3000); // hide the statusTxt after 3 seconds if the message is sent
+            }
+            statusTxt.style.color = "lightgreen";
+            statusTxt.innerText = response;
         }
     }
-    xhr.send();
+    let formData = new FormData(form); // creating new FormData obj. This obj is used to send form data
+    xhr.send(formData); // sending form data
 }

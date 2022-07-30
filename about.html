@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About Me</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <header>
+        <a href="index.html" class="logo">Game Squik</a>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </header>
+    <section class="banner">
+        <div class="main_container">
+            <h1>About Me</h1>
+            <div>
+                <p style="background-color: rgb(30, 23, 83); height: 100px;">Game studio established in 2021 managed by one Norwegian game developer. I'm first year computer science student.
+                    I have currently released one game, Jump City on Google Play. The game was made using the game development framework libGDX.
+                </p> 
+            </div>
+        </div>
+    </section>
+    <script type="text/javascript">
+        window.addEventListener("scroll", function(){
+            var header = document.querySelector("header");
+            header.classList.toggle("sticky", window.scrollY > 0);
+        })
+    </script>
+</body>
+</html>

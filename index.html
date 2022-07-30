@@ -1,1 +1,41 @@
-"Hello World" 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Game Squik</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <header>
+        <a href="#" class="logo">Game Squik</a>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </header>
+    <section class="banner">
+        <div class="main_container">
+            <div class="image">
+                <img class="image_img" src="images/banner.png" alt="Jump City">
+                <div class="image_overlay">
+                    <a href="https://play.google.com/store/apps/details?id=com.gamesquik.jumpcity">
+                        <img src="images/google-play-badge.png">
+                    </a>
+                </div>
+            </div>
+            <div class="image">
+                <a href="https://play.google.com/store/apps/details?id=com.gamesquik.jumpcity">
+                    <img width=300px src="images/google-play-badge.png">
+                </a>
+            </div>
+        </div>
+    </section>
+    <script type="text/javascript">
+        window.addEventListener("scroll", function(){
+            var header = document.querySelector("header");
+            header.classList.toggle("sticky", window.scrollY > 0);
+        })
+    </script>
+</body>
+</html>
